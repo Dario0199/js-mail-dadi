@@ -6,29 +6,28 @@
 
 const mailList = ['dario.di.cuia@gmail.com', 'boolean@outlook.com', 'array.js@virgilio.it'];
 
-// mailList[0]
-// mailList[1]
-// mailList[2]
-
 console.log(mailList);
 console.log('numero di array', mailList.length)
 
-const email = prompt('Inserisci la tua email') ;
+const email = prompt('Inserisci la tua email').trim();
 console.log(email);
 
-// if( (email < 0) || (email < mailList.length) ){
-//     console.log("L'email inserita è valida");
-// } else{
-//     console.log("l'email inserita non è valida");
-// }
+let mailFound = false
 
 for(let i = 0; i < mailList.length; i++){
-    if(email == mailList[i]){
+    if(mailList[i] === email){
+        mailFound = true
+    }
+
+    if(mailFound){
         console.log('email valida');
-    } else if(email != mailList[i]){
+    } else{
         console.log('email non valida');
     }
 }
+
+
+
 
 //GIOCO DEI DADI
 const btn = document.querySelector('.gen-btn')
@@ -44,7 +43,9 @@ btn.addEventListener('click', function(){
 
     if(rand1 > rand2){
         console.log('Hai vinto!');
-    } else{
+    } else if(rand2 > rand1){
         console.log('Hai perso!'); 
+    } else{
+        console.log('I numeri sono pari');
     }
 });
